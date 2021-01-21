@@ -1,0 +1,22 @@
+{% extends 'TodoApp/base.html' %}
+{% block titile %} Delete {% endblock %}
+{% block content %}
+<div class="container mt-3">
+    <div class="card col-md-6 mx-auto" style="background-color: #906abd;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 16px;
+    box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);">
+		<h2 class="bg-secondary text-white text-center border-rounded p-2 m-2">Delete Task</h2>
+		<p >Are you sure you want to delete "{{item}}"?</p>
+		
+        <form class="m-2" method="POST" >
+			{% csrf_token %}
+			<a href="{% url 'home' %}" class=" btn btn-block-sm btn-danger">Cancel</a>
+            <input type="submit" value="Confirm" class=" btn btn-block-sm btn-success">
+        </form>
+    </div>
+</div>
+{% endblock %}
